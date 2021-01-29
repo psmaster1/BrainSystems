@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ page_settings.title|default:"Registrierung" }}{% endblock %}
+{% block content %}
+    <div class="register-body">
+    <header class="register-hero">
+        <div>
+            <a href="{% url 'web:index' %}">
+                <img class="logo" src="{% static 'img/logo.png' %}" alt="logo"/>
+                <h2 class="brandname-logo">BrainSystems</h2>
+            </a>
+
+            <nav class="header-nav">
+                <ul>
+                    <li>
+                        <a href="{% url 'web:index' %}" class="nav-link">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'web:kontakt' %}" class="nav-link">Kontakt</a>
+                    </li>
+                    <li class="active">
+                        <a href="{% url 'web:login' %}" class="nav-link">Login</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+    <section class="formular">
+        <h3>Registrierung</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{ resgister_form.errors }}
+            <div class="form-left">
+                <div class="form-group">
+                    {{ register_form.username.errors }}
+                    {{ register_form.username }}
+                    <label for="id_username" class="control-label">Username</label><i class="bar"></i>
+                </div>
+                <div class="form-group">
+                    {{ register_form.first_name }}
+                    <label for="id_first_name" class="control-label">Vorname</label><i class="bar"></i>
+                </div>
+                <div class="form-group">
+                    {{ register_form.last_name }}
+                    <label for="id_last_name" class="control-label">Nachname</label><i class="bar"></i>
+                </div>
+            </div>
+            <div class="form-right">
+                <div class="form-group">
+                    {{ register_form.email.errors }}
+                    {{ register_form.email }}
+                    <label for="id_email" class="control-label">Email</label><i class="bar"></i>
+                </div>
+                <div class="form-group">
+                    {{ register_form.password1 }}
+                    <label for="id_password1" class="control-label">Passwort</label><i class="bar"></i>
+                </div>
+                <div class="form-group">
+                    {{ register_form.password2 }}
+                    <label for="id_password2" class="control-label">Passwort wiederholen</label><i class="bar"></i>
+                    {{ register_form.password2.errors }}
+                </div>
+                <div class="checkbox">
+                    <label class="dsgvo">Sie erklären sich damit einverstanden, dass Ihre Daten zur Bearbeitung Ihres Anliegens
+                        verwendet werden. Informationen und Wiederufshinweise finden Sie in der
+                        Datenschutzerklärung.
+                        <input type="checkbox" checked="checked"/><i class="helper"></i>
+                    </label>
+                </div>
+            </div>
+            <div class="button-container">
+                <input type="submit" class="button" value="Jetzt Registrieren"/>
+            </div>
+        </form>
+    </section>
+    </div>
+{% endblock %}

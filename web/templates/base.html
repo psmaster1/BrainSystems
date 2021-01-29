@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <title>{% block title %}BrainSystems{% endblock %}</title>
+    {% block seo_meta %}
+        {% include 'partials/seo_meta.html' %}
+    {% endblock %}
+    {% block css %} {% endblock %}
+</head>
+<body>
+
+{% block content %} {% endblock %}
+
+{% block footer %}
+    <footer>
+        <div class="footer-links">
+            <a href="{% url 'web:impressum' %}" class="nav-link">Impressum</a>
+            <a href="{% url 'web:datenschutz' %}" class="nav-link">Datenschutz</a>
+        </div>
+        <p>&copy; copyright by <span>BrainSystems</span></p>
+    </footer>
+
+{% endblock %}
+<script src="{% static 'js/particles.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+<script src="{% static "js/main.js" %}"></script>
+
+</body>
+</html>

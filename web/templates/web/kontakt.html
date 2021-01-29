@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ page_settings.title|default:"Kontakt" }}{% endblock %}
+{% block content %}
+    <header>
+        <div class="kontakt-hero">
+            <h1 class="heading-title">So erreichen Sie uns</h1>
+            <a href="{% url 'web:index' %}">
+                <img class="logo" src="{% static 'img/logo.png' %}" alt="logo"/>
+                <h2 class="brandname-logo">BrainSystems</h2>
+            </a>
+
+
+            <nav class="header-nav">
+                <ul>
+                    <li>
+                        <a href="{% url 'web:index' %}" class="nav-link">Home</a>
+                    </li>
+                    <li class="active">
+                        <a href="{% url 'web:kontakt' %}" class="nav-link active">Kontakt</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'web:login' %}" class="nav-link">Login</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="kontakt-daten">
+
+
+        <div>
+            <h3><span class="logo-branding">BrainSytems</span> Headquater</h3>
+            <p><span class="logo-branding">BrainSystems</span> Electronics</p>
+            <p>Kopfstrasse 163</p>
+            <p>4020 Linz</p>
+            <p>Austria</p>
+        </div>
+
+        <div>
+            <h3>Bürozeiten</h3>
+            <p>Montag - Donnerstag</p>
+            <p>8.00 - 12.00 Uhr</p>
+            <p>13.00 - 17.00 Uhr</p>
+            <p>Freitag</p>
+            <p>8.00 - 13.00 Uhr</p>
+        </div>
+
+        <div>
+            <h3>Kontaktdaten</h3>
+            <p>AT: +43 0473 63 63</p>
+            <p>DE: +49 9835 2998304</p>
+            <p>Mail: </p>
+            <p>office@brainsystems.com</p>
+        </div>
+    </section>
+
+    <section class="formular">
+        <h3>Ihr Projekt</h3>
+        <p>Von der ersten Idee bis zum letzten Feinschliff - wir stehen Ihnen zur Seite. Profitieren Sie von der
+            Erfahrung
+            durch viele tausende Smart Home Installationen und lassen Sie sich dabei helfen Ihr Projekt ins
+            Rollen
+            zu bringen. Selbsverständlich kostenlos und unverbindlich bis zum Projektstart.</p>
+
+        <div>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li class="success">
+                            <p>{{ message }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-left">
+                <span class="error">
+                    {{ form.email.first_name }}
+                </span>
+                <div class="form-group">
+                <input type="text" id="id_first_name" name="id_first_name" required="required"/>
+                <label for="id_first_name" class="control-label">Vorname</label><i class="bar"></i>
+                </div>
+                <span class="error">
+                    {{ form.email.last_name }}
+                </span>
+                <div class="form-group">
+                    <input type="text" id="is_last_name" name='last_name' required="required"/>
+                    <label for="is_last_name" class="control-label">Nachname</label><i class="bar"></i>
+                </div>
+                <span class="error">
+                    {{ form.email.errors }}
+                </span>
+                <div class="form-group">
+                    <input type="email" id="id_email" name="email" required="required"/>
+                    <label for="id_email" class="control-label">Email</label><i class="bar"></i>
+                </div>
+                <span class="error">
+                {{ form.phone_number.errors }}
+                </span>
+                <div class="form-group">
+                    <input type="tel" id="id_phone_number" name="phone_number" required="required"/>
+                    <label for="id_phone_number" class="control-label">Telefonnummer</label><i class="bar"></i>
+                </div>
+                <span class="error">
+                {{ form.country.errors }}
+                </span>
+                <div class="form-group">
+                    <select id="id_country" name="country">
+                        <option value="Österreich">Österreich</option>
+                        <option value="Deutschland">Deutschland</option>
+                        <option value="Schweiz">Schweiz</option>
+                    </select>
+                    <label for="id_country" class="control-label">Land</label><i class="bar"></i>
+                </div>
+                <span class="error">
+                    {{ form.house_type.errors }}
+                </span>
+                <div class="form-group">
+                    <select id="id_house_type" name="house_type">
+                        <option>Neubau</option>
+                        <option>Altbau</option>
+                        <option>Wohnung</option>
+                    </select>
+                    <label for="id_house_type" class="control-label">Hausart</label><i class="bar"></i>
+                </div>
+            </div>
+            <div class="form-right">
+            <span class="error">
+            {{ form.living_space.errors }}
+            </span>
+
+                <div class="form-group">
+                    <select id="id_living_space" name="living_space">
+                        <option>30m² - 80m²</option>
+                        <option>80m² - 120m²</option>
+                        <option>120m² - 200m²</option>
+                        <option>Größer als 200m²</option>
+                    </select>
+                    <label for="id_living_space" class="control-label">Wohnfläche</label><i class="bar"></i>
+                </div>
+                <div class="form-group">
+                    <textarea required="required" id="id_message" name="message"></textarea>
+                    <label for="id_message" class="control-label">Ihre Nachricht an uns</label><i class="bar"></i>
+                </div>
+                <div class="checkbox">
+                    <span class="error">{{ form.agreed.errors }}</span>
+                    <label class="dsgvo">Sie erklären sich damit einverstanden, dass Ihre Daten zur Bearbeitung Ihres Anliegens
+                        verwendet
+                        werden. Informationen und Wiederufshinweise finden Sie in der Datenschutzerklärung.
+                        <input type="checkbox" checked="checked" id="is_agreed" name="agreed"/><i
+                                class="helper"></i>
+                    </label>
+                </div>
+            </div>
+            <div class="button-container">
+                <input type="submit" class="button" value="Anfrage senden"/>
+            </div>
+
+        </form>
+    </section>
+{% endblock %}
+

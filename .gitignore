@@ -1,0 +1,6 @@
+smarthome/local_env.py
+smarthome/production_env.py
+venv
+db_dump.sql
+web/.idea
+.idea

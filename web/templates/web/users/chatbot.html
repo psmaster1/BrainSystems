@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <title>Chatbot</title>
+</head>
+<body class="chatbot-layout">
+<header class="backend-nav">
+    <a href="{% url 'web:backend' %}" class="backend-logo-all">
+        <img class="backend-logo" src="../../../static/img/logo.png" alt="logo"/>
+        <h2 class="backend-brandname-logo">BrainSystems</h2>
+    </a>
+
+    <nav class="backend-nav-links">
+        <ul>
+            <li>
+                <a href="{% url 'web:backend' %}" class="backend-nav-link">Home</a>
+                <a href="{% url 'web:backend' %}"><i class="fas fa-home"></i></a>
+            </li>
+            <li>
+                <a href="{% url 'web:userdata' %}" class="backend-nav-link">Meine Daten</a>
+                <a href="{% url 'web:userdata' %}"><i class="fas fa-user"></i></a>
+            </li>
+            <li class="active">
+                <a href="{% url 'web:chatbot' %}" class="backend-nav-link">Chatbot</a>
+                <a href="{% url 'web:chatbot' %}"><i class="fas fa-robot"></i></a>
+            </li>
+            <li>
+                <a href="{% url 'web:logout' %}" class="backend-nav-link">Logout</a>
+                <a href="{% url 'web:logout' %}"><i class="fas fa-sign-out-alt"></i></a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<section class="chatbot" id="app">
+    <h3>Stelle Robo deine Fragen zum Thema SmartHome!</h3>
+
+    <div class="chat-container">
+        <div v-for="faq in faqs" v-if="faqs">
+
+            <div class="outgoing-msg enter-active">
+                <div class="sent-msg" v-if="faq.question">
+                    <p class="grey">[[faq.question]]</p>
+                </div>
+            </div>
+
+            <div class="container enter-active-delay">
+                <div class="recived-msg">
+                    <div class="received-withd-msg">
+                        <p class="green">[[faq.answer]]</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <form method="POST" @submit.prevent="handleQuestion" id="faq-form">
+        {% csrf_token %}
+        <div class="chatbot-input">
+            <input placeholder="Hier schreiben" id="question" name="question" v-model="question" required />
+        </div>
+        <div class="button-container">
+            <input type="submit" class="button" value="Senden"/>
+        </div>
+    </form>
+</section>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        delimiters: ["[[", "]]"],
+        data: {
+            message: 'Hello Vue!',
+            question: "",
+            faqs: [
+                {question: "", answer: "Hallo, Ich bin Robo, dein Berater wenn's um das Thema SmartHome geht!"},
+            ],
+        },
+        methods: {
+            handleQuestion() {
+                var form = document.getElementById('faq-form');
+                var formData = new FormData(form);
+                var that = this
+                setTimeout(function(){
+                    that.scrollToEnd();
+                },500)
+                axios.post('/api/chatbot/', formData)
+                    .then(function (response) {
+
+                        that.faqs.push({
+                            question: that.question,
+                            answer: response.data['answer'],
+                        });
+                        that.question = '';
+                    })
+                    .catch(function (error) {
+                        //console.log(error);
+                    });
+            },
+  	        scrollToEnd: function() {
+                var container = this.$el.querySelector(".chat-container");
+                container.scrollTop = container.scrollHeight;
+            }
+        }
+    })
+
+</script>
+</html>

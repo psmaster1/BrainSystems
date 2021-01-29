@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <header id="particles-js">
+        <div class="hero-overlay">
+            <div class="title-container">
+                <h1 class="heading-title">SmartHome</h1>
+                <p class="sub-headline">Die Zukunft des Wohnens</p>
+            </div>
+            <a href="{% url 'web:index' %}">
+                <img class="logo" src="{% static 'img/logo.png' %}" alt="logo"/>
+                <h2 class="brandname-logo">BrainSystems</h2>
+            </a>
+
+            <nav class="header-nav">
+                <ul>
+                    {% if request.user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'web:logout' %}" class="nav-link">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="active">
+                            <a href="{% url 'web:index' %}" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-li">
+                            <a href="{% url 'web:kontakt' %}" class="nav-link">Kontakt</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'web:login' %}" class="nav-link">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            <p class="hero-description"><span class="brandname">BrainSystems</span> bietet individuelle Lösungen für Ihr
+                Smart-Home. Egal ob Eigentumswohnung oder Einfamilienhaus, WIR haben die passenden Produkte. Vereinbaren
+                SIE
+                noch heute Ihre kostenlose Erstberatung!</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-facebook-square"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="vorteile">
+        <div class="c1">
+            <img class="lightbulb" src="{% static 'img/energy.png' %}" alt="glühbirne">
+            <h2>Sparen Sie Energie</h2>
+            <p>Unsere Smart Home Lösung bietet Ihnen viele Möglichkeiten Ihren Energieverbrauch zu steuern und dabei
+                Bares
+                Geld zu sparen!</p>
+        </div>
+        <div class="c2">
+            <img class="lightbulb" src="{% static 'img/zeit.png' %}" alt="kaffeetasse">
+            <h2>Mehr Freizeit</h2>
+            <p>Wir nehmen Ihnen über 1000 Handgriffe pro Jahr ab. Dank unserer Smart Home Geräte können Sie sich
+                entspannen! </p>
+        </div>
+        <div class="c3">
+            <img class="lightbulb" src="{% static 'img/sicherheit.png' %}" alt="vorhängeschloss">
+            <h2>Immer Sicher</h2>
+            <p>Mit Ihrem Handy haben Sie ihr Haus immer im Blick. Egal ob Sie einen Blick in das Wohnzimmer werfen
+                wollen
+                oder die Raumtemperatur anpassen.</p>
+        </div>
+    </section>
+
+    <section class="all-gadgets">
+        <div class="gadgets card middle first">
+            <div class="gadget-front">
+                <img src="{% static 'img/face-id.png' %}" alt="gesichtserkennung" class="gadget-image"/>
+                <i class="fas fa-redo-alt"></i>
+            </div>
+            <div class="gadget-text back">
+                <h3>Die Gesichtserkennung</h3>
+                <p>Ein wesentlicher Bestandteil eines Smart Homes ist die automatische Gesichtserkennung. Mit der
+                    Gesichtserkennung haben Sie jederzeit Zutritt zu Ihrem Haus. Ganz ohne lästige Schlüssel. Das beste
+                    daran ist, Sie können sich nie wieder aussperren, denn Ihr Gesicht ist ihr ständiger Begleiter.
+                    Diese
+                    Technologie bietet noch viele weitere Vorteile!</p>
+                <a href="{% url 'web:kontakt' %}">Kostenlose Anfrage</a>
+            </div>
+        </div>
+
+        <div class="gadgets card middle second">
+            <div class="gadget-text text-switch back">
+                <h3>Individuelle Beleuchtung</h3>
+                <p>In Ihrem Smart Home erleben Sie ein unvergleichliches Wohngefühl – mit all Ihren Sinnen. Besonders
+                    die
+                    Beleuchtung in den eigenen vier Wänden hat einen großen Einfluss auf das Wohlbefinden. Wir geben
+                    Ihnen
+                    genug Raum, um Ihre persönlichen Bedürfnisse, Wünsche und Vorstellungen in Ihre Lichtsteuerung
+                    miteinfließen zu lassen, um so für richtige Atmosphäre und Stimmung zu sorgen.</p>
+                <a href="{% url 'web:kontakt' %}">Kostenlose Anfrage</a>
+            </div>
+            <div class="gadget-front">
+                <img src="{% static 'img/light.png' %}" alt="bunte glühbirnen" class="gadget-image image-switch"/>
+                <i class="fas fa-redo-alt"></i>
+            </div>
+        </div>
+
+
+        <div class="gadgets card middle third">
+            <div class="gadget-front">
+                <img src="{% static 'img/bot.png' %}" alt="roboter" class="gadget-image"/>
+                <i class="fas fa-redo-alt"></i>
+            </div>
+            <div class="gadget-text back">
+                <h3>Ihr persönlicher Assistent</h3>
+                <p>Unser System stellt Ihnen ihren persöhnlichen virtuellen Assistenten zur verfügung. Er erinnert Sie
+                    an
+                    Termine, lernt ihre Gewohnheiten kennen und erleichtert Ihnen den Alltag, mit vielen
+                    Hilfestellungen.
+                    Egal ob Sie ihre Lieblingsmusik hören möchten oder die Raumtemperatur regeln wollen. Alles ganz
+                    einfach
+                    per Sprachsteuerung bedienbar.</p>
+                <a href="{% url 'web:kontakt' %}">Kostenlose Anfrage</a>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="server-technik">
+        <h3>Höchster IQ- Dank MiniServer Technologie</h3>
+        <p>Wir verbinden alle Komponenten ähnlich dem menschlichen Nervensystem. Alle Stränge laufen zusammen zur
+            zentralen
+            Steuerung, dem Miniserver. Er lässt die einzelnen Geräte regelrecht miteinander sprechen. Durch dieses
+            perfekte
+            Zusammenspiel antizipiert der Miniserver Gewohnheiten, Wünsche und Bedürfnisse und ermöglicht so Wohnkomfort
+            ohnegleichen.</p>
+    </section>
+
+    <section class="demo-video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Bc2663p7AHg?start=9"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        <div class="video-text">
+            <h3>Das Haus der Zukunft</h3>
+            <p>Mit unserer patentierten Komplettlösung begleiten wir Sie durch die ganze Baupahse um die idealen
+                Komponenten
+                für Ihr Zuhause zu finden. Die Komponeneten werden perfekt auf Sie zugeschnitten damit Sie ihr neues
+                Zuhause
+                voll und ganz genießen können.</p>
+        </div>
+    </section>
+
+    <section class="projekt-planung">
+        <h3>Sprechen wir über Ihr Smart Home</h3>
+        <p>Überzeugt? Dann lassen Sie uns über Ihr Smart Home sprechen! Wir beantworten Ihre Fragen rund um das Leben in
+            einem Smart Home und helfen Ihnen den perfekten Partner zu finden.</p>
+        <a href="{% url 'web:kontakt' %}">sprechen wir über ihr projekt</a>
+    </section>
+
+{% endblock %}
+
+
+

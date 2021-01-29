@@ -1,0 +1,51 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hey", "Wie geht's?", "Ist da jemand?", "Hallo", "Guten Tag", "Servus"],
+         "responses": ["Hallo, wie kann ich dir behilflich sein?", "Schön das du vorbei schaust", "Hey, wie kann ich dir helfen?", "Servus"]
+        },
+        {"tag": "goodbye",
+         "patterns": ["Tschüss", "Bis zum nächsten mal!", "War nett mit dir zu plaudern!"],
+         "responses": ["Tschüss, bis zum nächsten mal!", "Ich wünsche dir einen schönen Tag!", "Es war mir eine Ehre!", "Pfiat Di"]
+        },
+        {"tag": "thanks",
+         "patterns": ["Danke", "Danke dir", "Das war hilfreich!", "Danke für die Erklärung!"],
+         "responses": ["Freut mich dir geholfen zu haben!", "Immer gerne!", "Es war mir eine Freude!"]
+        },
+        {"tag": "hours",
+         "patterns": ["Wann habt ihr geöffnet?", "Wann kann ich euch erreichen?", "Was sind eure Öffnungszeiten?" ],
+         "responses": ["Wir sind Mo-Fr von 8-18 Uhr für Dich da!"]
+        },
+        {"tag": "face_recognition",
+         "patterns": ["Was ist eine Gesichtserkennung?", "Was kann ich mit der Gesichtserkennung machen?", "Warum braucht ein Smarthome eine Gesichtserkennung?" ],
+         "responses": ["Die Gesichtserkennung ist eine Software die deinem Smarthome hilft deine Identität sicher zu stellen.", "Die Gesichtserkennung dient der Sicherheit! Ein Schlüssel kann gestohlen werden, dein Gesicht nicht!", "Mit der Gesichtserkennung kannst du zum Beispiel dein Haustüre aufsperren ohne nach den Schlüssel suchen zu müssen!"]
+        },
+        {"tag": "contact",
+         "patterns": ["Wie kann ich euch erreichen?", "Wie kann ich ein Beratungsgespräch vereinbaren?", "Das klingt interresant! Ich möchte mehr erfahren!" ],
+         "responses": ["Am besten rufst du uns einfach an! Unsere Nummer lautet: 0676 / 123 456 78", "Du kannst uns anrufen oder eine E-Mail schreiben!"]
+        },
+        {"tag": "smart_home",
+         "patterns": ["Warum sollte ich mir ein Smarthome bauen?", "Wozu benötige ich ein Smarthome?", "Was kann das Smarthome?"],
+         "responses": ["Unsere Smarthome Lösung nimmt dir 5000 Handgriffee jedes Jahr ab! Dadurch hast du mehr Zeit für die wichtigen Dinge! Z.B.: Die Familie! :)", "Dein Smarthome kann dir beim sparen helfen, indem es zum Beispiel deine Heizung und Klimaanlage optimal steuert und vieles mehr!"]
+        },
+        {"tag": "price",
+         "patterns": ["Wieviel kostet ein Smarthome?", "Wie teuer ist das?", "Kann ich mir das leisten?"],
+         "responses": ["Je nach dem wie groß dein Haus ist und was für eine Ausstattung du dir wünscht, rechnen wir mit ca. 450€ pro Quadratmeter.", "Der Quadratmeterpreis liegt bei ca. 450€. Am besten kommst du bei uns vorbei und lässt dich beraten!"]
+        },
+        {"tag": "devices",
+         "patterns": ["Was kann man alles einbauen lassen?", "Welche Geräte gibt es?", "Was kann ich alles steuern?"],
+         "responses": ["Es gibt viele Geräte für unser Smarthome. Zum Beispiel die Gesichtserkennung, smarte Heizungssteuerung, smarte Beleuchtung, Sprachassitenten und viele mehr!", "Dank unseres eigenen Microchips können wir fast alle Geräte in ein Smartdevice verwandeln!"]
+        },
+        {"tag": "cooperations",
+         "patterns": ["Wer wird das Haus umbauen?", "Gibt es Partner die mir die Geräte einbauen?", "Kann ich mein komplettes Haus von euch errichten lassen?"],
+         "responses": ["Wir haben viele Partner im deutschprachigem Raum. Zum Beispiel: Elk Fertigteilhaus oder Wimberger um nur einige zu nennen.", "Wir arbeiten mit vielen Regionalen Partnern zusammen, sodass wir auch für dich die passende Lösung finden werden!", "Du kannst dein gesamtes Bauvorhaben mit unseren Partnern und uns gemeinsam umsetzten."]
+        },
+        {"tag": "small_talk",
+         "patterns": ["Wie geht's?", "Wie geht es dir?", "Was geht ab?"],
+         "responses": ["Danke Gut!", "Bei mir passt alles! Danke der Nachfrage!"]
+        },
+        {"tag": "frasen",
+         "patterns": ["Ok", "Cool", "Aha", "Mhm"],
+         "responses": ["Freut mich dir geholfen zu haben!"]
+        }
+   ]
+}

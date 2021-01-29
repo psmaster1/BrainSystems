@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <title>Backend-Home</title>
+</head>
+<body class="backend-layout">
+<header class="backend-nav">
+    <a href="{% url 'web:backend' %}" class="backend-logo-all">
+        <img class="backend-logo" src="../../../static/img/logo.png" alt="logo"/>
+        <h2 class="backend-brandname-logo">BrainSystems</h2>
+    </a>
+
+    <nav class="backend-nav-links">
+        <ul>
+            <li class="active">
+                <a href="{% url 'web:backend' %}" class="backend-nav-link">Home</a>
+                <a href="{% url 'web:backend' %}"><i class="fas fa-home"></i></a>
+            </li>
+            <li>
+                <a href="{% url 'web:userdata' %}" class="backend-nav-link">Meine Daten</a>
+                <a href="{% url 'web:userdata' %}"><i class="fas fa-user"></i></a>
+            </li>
+            <li>
+                <a href="{% url 'web:chatbot' %}" class="backend-nav-link">Chatbot</a>
+                <a href="{% url 'web:chatbot' %}"><i class="fas fa-robot"></i></a>
+            </li>
+            <li>
+                <a href="{% url 'web:logout' %}" class="backend-nav-link">Logout</a>
+                <a href="{% url 'web:logout' %}"><i class="fas fa-sign-out-alt"></i></a>
+            </li>
+        </ul>
+    </nav>
+</header>
+    <section class="backend-home">
+        <h3>Herzlich Willkommen Patrick!</h3>
+        <h4>News:</h4>
+        <img src="../../../static/img/smart-mirror.jpg" alt="smart-mirror">
+        <h4>Ab sofort ist die neueste Entwicklung im Smart Home Berreich bei uns erhältlich!</h4>
+        <p>Smart Mirrors sind die unsichtbare Lösung für schnelle Informationsabfragen in allen Spiegeln. Sie können sich morgens, während dem rasieren die Nachrichten durchlesen oder wichtige Emails beantworten. Dadurch kommen Sie morgens entspannt aus dem Bad und können mit vollem Elan in den Tag staretn. Kontaktieren Sie uns und wir werden alle Ihre Fragen beantworten. </p>
+    </section>
+</body>
+</html>
+
+
